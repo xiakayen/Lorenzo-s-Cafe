@@ -1,0 +1,385 @@
+<!DOCTYPE html>
+
+<html lang="en">
+<head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Lorenzo's Cafe</title>
+<link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&amp;family=Open+Sans&amp;display=swap" rel="stylesheet"/>
+<script crossorigin="anonymous" src="https://kit.fontawesome.com/a076d05399.js"></script>
+<style>
+    /* Global */
+    body {
+      font-family: 'Open Sans', sans-serif;
+      margin: 0;
+      padding: 0;
+      background-color: #fef9f4;
+      color: #3e2723;
+      font-size: 20px;
+      line-height: 1.8;
+    }
+    a { color: inherit; }
+
+    /* Hero Banner */
+    .hero {
+      background: url("https://source.unsplash.com/1600x600/?coffee,cafe") center/cover no-repeat;
+      height: 400px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      text-shadow: 2px 2px 6px rgba(0,0,0,0.5);
+    }
+    .hero h1 {
+      font-family: 'Bebas Neue', sans-serif;
+      font-size: 72px;
+      color: #fff;
+      margin: 0;
+      letter-spacing: 4px;
+    }
+
+    /* Header */
+    header {
+      background-color: #4e342e;
+      color: white;
+      padding: 20px 40px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+    }
+    .logo {
+      font-family: 'Bebas Neue', sans-serif;
+      font-size: 36px;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+    }
+    nav {
+      display: flex;
+      gap: 30px;
+    }
+    nav a {
+      color: white;
+      text-decoration: none;
+      font-size: 18px;
+      font-weight: bold;
+      transition: color 0.3s;
+      position: relative;
+    }
+    nav a::after {
+      content: '';
+      position: absolute;
+      bottom: -4px;
+      left: 0;
+      width: 0;
+      height: 2px;
+      background: #d7ccc8;
+      transition: width 0.3s;
+    }
+    nav a:hover::after {
+      width: 100%;
+    }
+
+    /* Sections */
+    section {
+      padding: 60px 5%;
+      max-width: 1400px;
+      margin: auto;
+    }
+    h2 {
+      font-size: 48px;
+      margin-bottom: 20px;
+      border-bottom: 3px solid #d7ccc8;
+      display: inline-block;
+    }
+    p {
+      font-size: 18px;
+      max-width: 900px;
+      margin-bottom: 20px;
+    }
+
+    /* Mission / Vision */
+    .mission-vision {
+      display: flex;
+      gap: 30px;
+      margin-top: 30px;
+    }
+    .mission-vision div {
+      flex: 1;
+      background-color: #fff3e0;
+      padding: 30px;
+      border-radius: 12px;
+      box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+      transition: transform 0.3s, box-shadow 0.3s;
+    }
+    .mission-vision div:hover {
+      transform: translateY(-6px);
+      box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15);
+    }
+    .mission-vision h3 {
+      margin-top: 0;
+      font-size: 28px;
+      color: #4e342e;
+    }
+
+    /* Menu Grid */
+    .menu-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 30px;
+      margin-top: 30px;
+    }
+    .menu-item {
+      background-color: #fff3e0;
+      padding: 30px;
+      border-radius: 15px;
+      box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+      text-align: center;
+      transition: transform 0.3s;
+    }
+    .menu-item:hover {
+      transform: translateY(-8px);
+    }
+    .menu-item img {
+      width: 100%;
+      height: 200px;
+      object-fit: cover;
+      border-radius: 12px;
+      margin-bottom: 20px;
+    }
+    .menu-item h3 {
+      font-size: 24px;
+      margin: 15px 0 10px;
+      color: #4e342e;
+    }
+    .menu-item p {
+      font-size: 16px;
+      color: #5d4037;
+    }
+
+    /* Footer */
+    footer {
+      background-color: #3e2723;
+      color: white;
+      padding: 60px 5%;
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+      gap: 30px;
+    }
+    .footer-column h4 {
+      margin-bottom: 16px;
+      font-size: 20px;
+      color: #d7ccc8;
+    }
+    .footer-column a {
+      display: block;
+      color: #d7ccc8;
+      text-decoration: none;
+      margin: 8px 0;
+      font-size: 16px;
+    }
+    .footer-column a:hover {
+      color: #ffffff;
+    }
+    .social-icons a {
+      margin-right: 16px;
+      font-size: 22px;
+      color: #d7ccc8;
+    }
+    .social-icons a:hover {
+      color: #fff;
+    }
+    .map-container iframe {
+      width: 100%;
+      height: 250px;
+      border: none;
+      border-radius: 12px;
+      margin-top: 20px;
+    }
+
+    /* Mobile */
+    @media (max-width: 768px) {
+      header { flex-direction: column; text-align: center; }
+      nav { justify-content: center; margin-top: 15px; }
+      .hero { height: 250px; }
+      .hero h1 { font-size: 48px; }
+      h2 { font-size: 32px; }
+      .mission-vision { flex-direction: column; }
+      .menu-grid { grid-template-columns: 1fr; }
+      footer { grid-template-columns: 1fr; }
+    }
+  
+#loader {
+  position: fixed;
+  top: 0; left: 0;
+  width: 100%; height: 100%;
+  background-color: #fef9f4;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 9999;
+}
+#loader h1 {
+  font-family: 'Bebas Neue', sans-serif;
+  font-size: 64px;
+  color: #4e342e;
+  animation: blink 1.5s infinite;
+}
+@keyframes blink {
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0.3; }
+}
+header {
+  padding: 40px 80px;
+  font-size: 22px;
+}
+footer {
+  padding: 80px 80px;
+}
+.footer-column h4 {
+  font-size: 24px;
+}
+.footer-column a, footer p {
+  font-size: 18px;
+}
+.logo {
+  font-size: 48px;
+}
+nav a {
+  font-size: 22px;
+}
+</style>
+</head>
+<body><div id="loader"><h1>Lorenzo's Cafe</h1></div>
+
+<header>
+<div class="logo">Lorenzo's Cafe</div>
+<nav>
+<a href="#about">About</a>
+<a href="#menu">Pastries</a>
+<a href="#drinks">Drinks</a>
+<a href="#contact">Contact</a>
+</nav>
+</header>
+<section id="about">
+<h2>About Us</h2>
+<p>Lorenzo's Cafe began as a small dream in a cozy kitchen, where the smell of banana bread and espresso filled the air. We believe in warmth, community, and serving pastries and drinks that bring comfort and joy.</p>
+<div class="mission-vision">
+<div>
+<h3>Mission</h3>
+<p>To create a space where everyone feels welcome, and every pastry and cup of coffee is made with heart.</p>
+</div>
+<div>
+<h3>Vision</h3>
+<p>To grow into a neighborhood staple, known for unforgettable flavors and genuine hospitality.</p>
+</div>
+</div>
+</section>
+<section id="menu">
+<h2>Pastry Menu</h2>
+<div class="menu-grid">
+<div class="menu-item">
+<img alt="Blueberry Cheesecake" src="Menu's/pastries/OIP.webp"/>
+<h3>Blueberry Cheesecake</h3>
+<p>Creamy, sweet, and topped with fresh blueberry preserves on a buttery crust.</p>
+</div>
+<div class="menu-item">
+<img alt="Cookies" src="Menu's/pastries/OIP (1).webp"/>
+<h3>Chocolate Chip Cookies</h3>
+<p>Warm, gooey, and full of melted chocolate chips in every bite.</p>
+</div>
+<div class="menu-item">
+<img alt="Brownies" src="Menu's/pastries/OSK.jpg"/>
+<h3>Fudge Brownies</h3>
+<p>Thick, rich, and ultra-fudgy brownies made from premium cocoa.</p>
+</div>
+<div class="menu-item">
+<img alt="Banana Bread" src="Menu's/pastries/OIP (2).webp"/>
+<h3>Banana Bread</h3>
+<p>Classic banana loaf with a hint of vanilla and a soft crumb texture.</p>
+</div>
+<div class="menu-item">
+<img alt="Crinkles" src="Menu's/pastries/download.webp"/>
+<h3>Chocolate Crinkles</h3>
+<p>Moist and chewy inside, dusted with powdered sugar outside.</p>
+</div>
+<div class="menu-item">
+<img alt="Cinnamon Rolls" src="Menu's/pastries/OIP (3).webp"/>
+<h3>Cinnamon Rolls</h3>
+<p>Swirls of cinnamon sugar topped with creamy vanilla glaze. A warm hug in every bite.</p>
+</div>
+</div>
+</section>
+<section id="drinks">
+<h2>Drinks</h2>
+<div class="menu-grid">
+<div class="menu-item">
+<img alt="Espresso" src="Menu's/drinks/OIP (4).webp"/>
+<h3>Espresso</h3>
+<p>Bold and intense — a shot of pure energy and flavor.</p>
+</div>
+<div class="menu-item">
+<img alt="Latte" src="Menu's/drinks/OIP (5).webp"/>
+<h3>Latte</h3>
+<p>Silky steamed milk blended with a rich espresso base.</p>
+</div>
+<div class="menu-item">
+<img alt="Iced Coffee" src="Menu's/drinks/OIP (6).webp"/>
+<h3>Iced Coffee</h3>
+<p>Chilled coffee brewed to perfection, refreshing and smooth.</p>
+</div>
+<div class="menu-item">
+<img alt="Matcha Latte" src="Menu's/drinks/Matcha-Frappuccino-with-BLueberries_5.jpg"/>
+<h3>Matcha Latte</h3>
+<p>Fine Japanese green tea powder blended with steamed milk, delivering a creamy, earthy flavor and a gentle caffeine lift.</p>
+</div>
+<div class="menu-item">
+<img alt="Caramel Macchiato" src="Menu's/drinks/OIP (8).webp"/>
+<h3>Caramel Macchiato</h3>
+<p>Layers of espresso, milk, and buttery caramel drizzle.</p>
+</div>
+<div class="menu-item">
+<img alt="Mocha" src="Menu's/drinks/OIP (9).webp"/>
+<h3>Mocha</h3>
+<p>Chocolate meets coffee — a blend of cocoa and espresso magic.</p>
+</div>
+</div>
+</section>
+<footer id="contact">
+<div class="footer-column">
+<h4>About Us</h4>
+<p>Serving warm pastries and freshly brewed coffee since 2023. Your neighborhood cafe with a cozy heart.</p>
+</div>
+<div class="footer-column">
+<h4>Quick Links</h4>
+<a href="#about">Our Story</a>
+<a href="#menu">Pastry Menu</a>
+<a href="#drinks">Drinks</a>
+<a href="#contact">Visit Us</a>
+</div>
+<div class="footer-column">
+<h4>Social Media</h4>
+<div class="social-icons">
+<a href="#"><i class="fab fa-facebook-f"></i></a>
+<a href="#"><i class="fab fa-instagram"></i></a>
+<a href="#"><i class="fab fa-tiktok"></i></a>
+</div>
+</div>
+<div class="footer-column">
+<h4>Contact</h4>
+<p>123 Bean Street, San Jose del Monte, Bulacan</p>
+<p>Phone: 0912 345 6789</p>
+<p>Email: hello@lorenzoscafe.com</p>
+<div class="map-container">
+<iframe allowfullscreen="" src="https://www.google.com/maps?q=123+Bean+Street,+San+Jose+del+Monte,+Bulacan&amp;output=embed"></iframe>
+</div>
+</div>
+</footer>
+<script>
+window.addEventListener("load", () => {
+  const loader = document.getElementById("loader");
+  loader.style.opacity = "0";
+  loader.style.transition = "opacity 0.6s ease";
+  setTimeout(() => loader.style.display = "none", 600);
+});
+</script></body>
+</html>
